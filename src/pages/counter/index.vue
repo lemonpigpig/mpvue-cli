@@ -5,7 +5,6 @@
       <button @click="increment">+</button>
       <button @click="decrement">-</button>
     </p>
-
     <a href="/pages/index/index" class="home">去往首页</a>
   </div>
 </template>
@@ -16,15 +15,18 @@ import { mapState, mapMutations } from 'vuex'
 
 export default {
   computed: {
-    ...mapState([
-      'count'
-    ])
+    ...mapState({
+      'count': state => state.counter.count
+    })
   },
   methods: {
     ...mapMutations([
       'increment',
       'decrement'
     ])
+  },
+  mounted () {
+    console.log('vuex:', this.$store.state.counter.count)
   }
 }
 
