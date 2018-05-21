@@ -1,6 +1,7 @@
 <template>
   <div>
     <ul class="container log-list">
+      {{test}}
       <li v-for="(log, index) in logs" :class="{ red: aa }" :key="index" class="log-item">
         <card :text="(index + 1) + ' . ' + log"></card>
       </li>
@@ -12,12 +13,17 @@
 import wx from 'wx'
 import { formatTime } from '@/utils/index'
 import card from '@/components/card'
+import { mapState } from 'vuex'
 
 export default {
   components: {
     card
   },
-
+  computed: {
+    ...mapState({
+      'test': state => state.log.test
+    })
+  },
   data () {
     return {
       logs: []

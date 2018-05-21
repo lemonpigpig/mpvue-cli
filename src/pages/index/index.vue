@@ -40,7 +40,7 @@ export default {
 
   methods: {
     bindViewTap () {
-      const url = '../logs/main'
+      const url = '/pages/logs/index'
       // wx.navigateTo({ url })
       this.$router.push(url)
     },
